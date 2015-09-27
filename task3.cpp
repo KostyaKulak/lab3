@@ -8,7 +8,7 @@ using namespace std;
 inline void solve(int n, int a[], int m, int b[], int &n_sum, int sum[], int &n_pr, int pr[]){
 
 int mem_n = n;
-	if (n!=m) 
+	if (n!=m)
 		n_sum = max(n, m);
 	else
 	{
@@ -23,15 +23,15 @@ int mem_n = n;
 		if (n < m)
 			for (int i=n;i < m;i++) sum[i] = b[i];
 		else
-			for (int i=m;i < n;i++) sum[i] = a[i];   
+			for (int i=m;i < n;i++) sum[i] = a[i];
 	if (n_sum = 0)
-	{ 
+	{
 		n_sum = 1;
 		sum[0] = 0;
 	}
 
 	n_pr = n + m - 1;
-	for (int i=0;i < n_pr;i++) 
+	for (int i=0;i < n_pr;i++)
 	{
 		pr[i] = 0;
 		if (i>=n) a[i]=0;
@@ -45,8 +45,8 @@ int mem_n = n;
 }
 
 inline void assert(int n, int a[], int m, int b[], int sum[], int pr[]){
-    int* sum_;
-    int* pr_;
+    int sum_[111];
+    int pr_[111];
     int sz_sum, sz_pr;
     solve(n, a, m, b, sz_sum, sum_, sz_pr, pr_);
     if (sz_sum != max(n, m) || sz_pr != n + m - 1){
