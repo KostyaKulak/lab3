@@ -7,6 +7,41 @@ using namespace std;
 
 inline void solve(int n, int a[], int m, int b[], int &n_sum, int sum[], int &n_pr, int pr[]){
 
+int mem_n = n;
+	if (n!=m) 
+		n_sum = max(n, m);
+	else
+	{
+		int mem_n = n;
+		while (a[n-1]+b[n-1]==0) n--;
+		n_sum = n;
+		n = mem_n;
+	}
+	for (int i=0;i < min (n, m);i++)
+		sum[i] = a[i] + b[i];
+	if (n!=m)
+		if (n < m)
+			for (int i=n;i < m;i++) sum[i] = b[i];
+		else
+			for (int i=m;i < n;i++) sum[i] = a[i];   
+	if (n_sum = 0)
+	{ 
+		n_sum = 1;
+		sum[0] = 0;
+	}
+
+	n_pr = n + m - 1;
+	for (int i=0;i < n_pr;i++) 
+	{
+		pr[i] = 0;
+		if (i>=n) a[i]=0;
+		if (i>=m) b[i]=0;
+	}
+	for (int i=0;i < n_pr;i++)
+		for (int j=0;j <= i;j++)
+			pr[i] += a[j]*b[i-j];
+
+
 }
 
 inline void assert(int n, int a[], int m, int b[], int sum[], int pr[]){
