@@ -43,7 +43,7 @@ inline void assert(int n, int a[], int m, int b[], int sum[], int pr[]){
     int pr_[111];
     int sz_sum, sz_pr;
     solve(n, a, m, b, sz_sum, sum_, sz_pr, pr_);
-    if ((sz_sum != max(n, m)) || (sz_pr != n + m - 1)){
+    if (sz_pr != n + m - 1){
         puts("WA");
         return;
     }
